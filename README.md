@@ -13,7 +13,7 @@ To access Spotify's API and utilize its features in our application, we first ne
 
 Once the application is created, we obtain a client ID and a client secret. These credentials serve as authentication keys for our application to interact with the Spotify web API. It's crucial to treat these credentials as sensitive information, similar to a username and password, and avoid sharing them publicly, especially the client secret key. To enhance security, we can store the client secret key in a separate file and include it in the project's .gitignore file if using Git for version control.
 
-'''python
+'''ruby
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 '''
