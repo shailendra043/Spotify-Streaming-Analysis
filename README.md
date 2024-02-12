@@ -28,11 +28,52 @@ To authenticate without signing into a user account, we only need the client ID 
 client_credentials_manager = SpotifyClientCredentials(client_id=cid, client_secret=secret)
 sp = spotipy.Spotify(client_credentials_manager = client_credentials_manager)
 ```
-Extracting data from Global top 200 playlist
+
+### Extracting data from Global top 200 playlist
 
 ```python
 playlist_link = "https://open.spotify.com/playlist/37i9dQZEVXbNG2KDcFcKOF?si=1333723a6eff4b7f"
 playlist_URI = playlist_link.split("/")[-1].split("?")[0]
 track_uris = [x["track"]["uri"] for x in sp.playlist_tracks(playlist_URI)["items"]]
 ```
+
+```python
+for track in sp.playlist_tracks(playlist_URI)["items"]:
+    #URI
+    track_uri = track["track"]["uri"]
+    
+    #Track name
+    track_name = track["track"]["name"]
+    
+    #Main Artist
+    artist_uri = track["track"]["artists"][0]["uri"]
+    artist_info = sp.artist(artist_uri)
+    
+    #Name, popularity, genre
+    artist_name = track["track"]["artists"][0]["name"]
+    artist_pop = artist_info["popularity"]
+    artist_genres = artist_info["genres"]
+    
+    #Album
+    album = track["track"]["album"]["name"]
+    
+    #Popularity of the track
+    track_pop = track["track"]["popularity"]
+```
+Save all of this data extracted into a dataframe using pandas, converting it into csv files that we can load into Tableau. 
+Note: I performed this for all available countries and dates prior to July 1st, 2019 and combined the csv’s into one file called Spotify_Daily_Streaming. 
+
+## Loading Data into Tableau
+
+Connect to your Global Spotify Excel file as a data source.
+
+![image](https://github.com/heetc27/Spotify-Streaming-Analysis/assets/51861740/590a4b53-439b-4925-ad55-814ec1f57783)
+
+## Representation of Top 50 Global Artists by Stream
+![image](https://github.com/heetc27/Spotify-Streaming-Analysis/assets/51861740/629ee218-bace-4572-a3ed-df953fc63e05)
+
+## Dashboard
+![image](https://github.com/heetc27/Spotify-Streaming-Analysis/assets/51861740/5ee07876-97e4-4382-97c4-33bc1ed442ea)
+
+
 
