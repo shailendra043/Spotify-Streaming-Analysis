@@ -28,7 +28,7 @@ To authenticate without signing into a user account, we only need the client ID 
 client_credentials_manager = SpotifyClientCredentials(client_id=cid, client_secret=secret)
 sp = spotipy.Spotify(client_credentials_manager = client_credentials_manager)
 ```
-Extracting data from global top 200 playlist
+Extracting data from Global top 200 playlist
 
 ```python
 playlist_link = "https://open.spotify.com/playlist/37i9dQZEVXbNG2KDcFcKOF?si=1333723a6eff4b7f"
