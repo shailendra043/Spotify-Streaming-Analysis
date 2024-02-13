@@ -81,7 +81,7 @@ Global View of:
 ![image](https://github.com/heetc27/Spotify-Streaming-Analysis/assets/51861740/5ee07876-97e4-4382-97c4-33bc1ed442ea)
 
 ## Global Insights
-### 1. Best and Worst Performers
+### Best and Worst Performers
 
 ![image](https://github.com/heetc27/Spotify-Streaming-Analysis/assets/51861740/78b8266b-17bc-476e-81c9-6df34052fee4)
 <li> The artists Post Malone and Drake standout as the most streaming and popular artists.
@@ -98,8 +98,10 @@ While Drake has a great number of tracks along with high streams. With over 6,50
 ## Country wise insights
 With Tableau's filtering capability of dashboard, the filtered visualization for a country can simply be viewed by clicking the country on the map visualization.
 
-Spotify Streaming Analysis for India:
+### Spotify Streaming Analysis for India:
+
 ![image](https://github.com/heetc27/Spotify-Streaming-Analysis/assets/51861740/f25dd01f-ff0c-4e85-8880-b80be6a09655)
 
-Spotify Streaming Analysis for Japan:
+### Spotify Streaming Analysis for Japan:
+
 ![image](https://github.com/heetc27/Spotify-Streaming-Analysis/assets/51861740/3a816c58-53c9-4bbc-9695-b6b8af2ccbd0)
