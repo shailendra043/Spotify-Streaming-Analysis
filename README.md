@@ -61,6 +61,7 @@ for track in sp.playlist_tracks(playlist_URI)["items"]:
     track_pop = track["track"]["popularity"]
 ```
 Save all of this data extracted into a dataframe using pandas, converting it into csv files that we can load into Tableau. 
+
 Note: I performed this for all available countries and dates prior to July 1st, 2019 and combined the csv’s into one file called Spotify_Daily_Streaming. 
 
 ## Loading Data into Tableau
@@ -73,7 +74,24 @@ Connect to your Global Spotify Excel file as a data source.
 ![image](https://github.com/heetc27/Spotify-Streaming-Analysis/assets/51861740/629ee218-bace-4572-a3ed-df953fc63e05)
 
 ## Dashboard
+Global View of
+1.  Number of Streams across all the weeks.
+2.  Number of Tracks vs Streams.
+3.  The Most Popular Tracks based on number of Streams.
 ![image](https://github.com/heetc27/Spotify-Streaming-Analysis/assets/51861740/5ee07876-97e4-4382-97c4-33bc1ed442ea)
 
+## Global Insights
+### 1. Best and Worst Performers
 
+![image](https://github.com/heetc27/Spotify-Streaming-Analysis/assets/51861740/78b8266b-17bc-476e-81c9-6df34052fee4)
+<li> The artists Post Malone and Drake standout as the most streaming and popular artists.
+<li> Jul stands out as the artist with the least popularity for the maximum number of tracks in the dataset.
+
+![image](https://github.com/heetc27/Spotify-Streaming-Analysis/assets/51861740/0a91a2bc-e0f2-40f9-9e24-fa4126f5fcd6)
+
+Post Malone exhibits extremely high popularity with less number of tracks. With over 7,800,000,000 for only 44 tracks.
+
+![image](https://github.com/heetc27/Spotify-Streaming-Analysis/assets/51861740/bc0a2213-d4dc-4bb7-adcb-863a3a6e2957)
+
+While Drake has a great number of tracks along with high streams. With over 6,500,000,000 for 115 tracks.
 
