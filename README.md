@@ -74,7 +74,7 @@ Connect to your Global Spotify Excel file as a data source.
 ![image](https://github.com/heetc27/Spotify-Streaming-Analysis/assets/51861740/629ee218-bace-4572-a3ed-df953fc63e05)
 
 ## Dashboard
-Global View of
+Global View of:
 1.  Number of Streams across all the weeks.
 2.  Number of Tracks vs Streams.
 3.  The Most Popular Tracks based on number of Streams.
@@ -95,3 +95,11 @@ Post Malone exhibits extremely high popularity with less number of tracks. With 
 
 While Drake has a great number of tracks along with high streams. With over 6,500,000,000 for 115 tracks.
 
+## Country wise insights
+With Tableau's filtering capability of dashboard, the filtered visualization for a country can simply be viewed by clicking the country on the map visualization.
+
+Spotify Streaming Analysis for India:
+![image](https://github.com/heetc27/Spotify-Streaming-Analysis/assets/51861740/f25dd01f-ff0c-4e85-8880-b80be6a09655)
+
+Spotify Streaming Analysis for Japan:
+![image](https://github.com/heetc27/Spotify-Streaming-Analysis/assets/51861740/3a816c58-53c9-4bbc-9695-b6b8af2ccbd0)
