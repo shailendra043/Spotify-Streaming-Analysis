@@ -11571,26 +11571,45 @@
         <view>
           <datasources>
             <datasource caption='Spotify_Daily_Streaming' name='federated.0ntkwxn1ln7hff1gi0ubn0wjmisl' />
-          </datasources>
-          <datasource-dependencies datasource='federated.0ntkwxn1ln7hff1gi0ubn0wjmisl'>
-            <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
-            <column datatype='date' name='[Date]' role='dimension' type='ordinal' />
-            <column datatype='integer' name='[Streams]' role='measure' type='quantitative' />
-            <column-instance column='[Streams]' derivation='Sum' name='[sum:Streams:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Date]' derivation='Week-Trunc' name='[twk:Date:qk]' pivot='key' type='quantitative' />
-          </datasource-dependencies>
-          <filter class='categorical' column='[federated.0ntkwxn1ln7hff1gi0ubn0wjmisl].[Action (Country)]'>
-            <groupfilter function='level-members' level='[Country]' user:ui-action-filter='[Action1_0BD92904B80A44E4888B6861A9A1F3E1]' user:ui-enumeration='all' user:ui-marker='enumerate' />
-          </filter>
-          <slices>
-            <column>[federated.0ntkwxn1ln7hff1gi0ubn0wjmisl].[Action (Country)]</column>
-          </slices>
-          <aggregation value='true' />
-        </view>
-        <style>
-          <style-rule element='header'>
-            <format attr='color' data-class='subtotal' value='#000000' />
-          </style-rule>
+          <datasources>
+    <datasource caption='Spotify_Daily_Streaming' name='federated.0ntkwxn1ln7hff1gi0ubn0wjmisl' />
+</datasources>
+<datasource-dependencies datasource='federated.0ntkwxn1ln7hff1gi0ubn0wjmisl'>
+    <column datatype='string' name='[Artist]' role='dimension' type='nominal' />
+    <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+    <column datatype='integer' name='[Streams]' role='measure' type='quantitative' />
+    <column datatype='string' name='[Track URL]' role='dimension' type='nominal' />
+    <column-instance column='[Track URL]' derivation='CountD' name='[ctd:Track URL:qk]' pivot='key' type='quantitative' />
+    <column-instance column='[Artist]' derivation='None' name='[none:Artist:nk]' pivot='key' type='nominal' />
+    <column-instance column='[Streams]' derivation='Sum' name='[sum:Streams:qk]' pivot='key' type='quantitative' />
+    <!-- New calculated field for Stream Rank -->
+    <column-instance column='[Streams]' derivation='Rank' name='[rank:Streams:qk]' pivot='key' type='quantitative' />
+</datasource-dependencies>
+<!-- Existing filter for Country -->
+<filter class='categorical' column='[federated.0ntkwxn1ln7hff1gi0ubn0wjmisl].[Action (Country)]'>
+    <groupfilter function='level-members' level='[Country]' user:ui-action-filter='[Action1_0BD92904B80A44E4888B6861A9A1F3E1]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+</filter>
+<!-- New filter for Artist -->
+<filter class='categorical' column='[federated.0ntkwxn1ln7hff1gi0ubn0wjmisl].[Artist]'>
+    <groupfilter function='level-members' level='[Artist]' user:ui-action-filter='[Action2_1234567890]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+</filter>
+<slices>
+    <column>[federated.0ntkwxn1ln7hff1gi0ubn0wjmisl].[Action (Country)]</column>
+    <!-- New slice for Artist -->
+    <column>[federated.0ntkwxn1ln7hff1gi0ubn0wjmisl].[Artist]</column>
+</slices>
+<aggregation value='true' />
+</view>
+<style>
+    <style-rule element='cell'>
+        <format attr='color' field='[federated.0ntkwxn1ln7hff1gi0ubn0wjmisl].[ctd:Track URL:qk]' value='#ffffff' />
+        <format attr='color' field='[federated.0ntkwxn1ln7hff1gi0ubn0wjmisl].[sum:Streams:qk]' value='#ffffff' />
+        <format attr='border-width' value='0' />
+        <format attr='border-style' value='none' />
+        <!-- New conditional formatting based on Streams count -->
+        <format attr='background-color' field='[federated.0ntkwxn1ln7hff1gi0ubn0wjmisl].[sum:Streams:qk]' function='if([sum:Streams:qk] > 1000000, "#00FF00", "#FF0000")' />
+    </style-rule>
+</style>
           <style-rule element='label'>
             <format attr='color' scope='rows' value='#ffffff' />
             <format attr='color' scope='cols' value='#ffffff' />
